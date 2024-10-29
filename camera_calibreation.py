@@ -118,7 +118,6 @@ prev_img_shape = None
 img_path = select_img_from_video(video_file)
 objpoints, imgpoints, ret, mtx, dist, rvecs, tvecs, t_img = camera_calibrate(img_path, checkerboard)
 rms_errors = calculate_rms_per_image(objpoints, imgpoints, rvecs, tvecs, mtx, dist)
-# visualize_camera_pose(img_path, rvecs, tvecs, mtx, dist, axis_length=3.0)
 
 for idx, error in enumerate(rms_errors):
     print(f"Image {t_img[idx]} RMS Error: {error}") # rms 오차
@@ -129,6 +128,3 @@ print(f"Number of images: {len(rms_errors)}")   # 사용 이미지 개수
 print(f"Average RMS Error: {np.mean(rms_errors)}")
 
 print("Camera matrix : \n", mtx) # 카메라 내부 파라미터
-# print("Distortion coefficients : \n", dist)
-# print("Rotation vectors : \n", rvecs)
-# print("Translation vectors : \n", tvecs)
